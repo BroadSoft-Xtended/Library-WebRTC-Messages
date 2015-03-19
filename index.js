@@ -1,0 +1,1 @@
+module.exports = {view: require('./lib/views/messages'), model: require('./lib/models/messages')};
