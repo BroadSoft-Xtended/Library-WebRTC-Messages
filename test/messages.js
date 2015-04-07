@@ -18,6 +18,10 @@ describe('messages', function() {
     testUA.disconnect();
     expect(messagesview.alert.text().trim()).toEqual('Connection failed');
   });
+  it('on audioOnly', function() {
+    configuration.view = 'audioOnly';
+    expect(messagesview.messages.attr('class')).toEqual('messages classes audioOnly');
+  });
   it('on invalid destination and connected', function() {
     location.search = '?destination=12345';
     config.allowOutside = false;
