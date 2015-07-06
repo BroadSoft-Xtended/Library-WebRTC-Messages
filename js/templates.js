@@ -16,7 +16,7 @@
 
     // messages.jade compiled template
     templatizer["messages"] = function tmpl_messages() {
-        return '<div class="bdsft-client"><div class="messages classes"><div class="alert"></div><div class="success"></div><div class="warning"></div><div class="normal"></div></div></div>';
+        return '<div class="bdsft-webrtc"><div class="messages classes"><div class="messageGetUserMedia alert msg"></div><div class="messageConnectionFailed alert msg"></div><div class="messageRegistrationNotFound alert msg"></div><div class="messageRegistrationWrongPassword alert msg"></div><div class="messageFailed alert msg"></div><div class="messageAlert alert msg"></div><div class="messageWarning warning msg"></div><div class="messageSuccess success msg"></div><div class="messageConnected success msg"></div><div class="messageRegistered success msg"></div><div class="messageUnregistered success msg"></div><div class="messageNormal normal msg"></div><div class="messageConnecting normal msg"></div><div class="messageRegistering normal msg"></div><div class="messageUnregistering normal msg"></div></div></div>';
     };
 
     return templatizer;

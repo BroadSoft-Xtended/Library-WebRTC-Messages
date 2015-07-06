@@ -1,4 +1,4 @@
-.bdsft-client
+.bdsft-webrtc
   .messages
     position absolute
     font-family arial
@@ -9,23 +9,81 @@
     top 10px
     left 10px
 
-  .messages.audioOnly
-    left 10px !important
-    top 48px !important
-    font-weight bold
-    font-size 14px
+    &.audioOnly
+      left 10px !important
+      top 48px !important
+      font-weight bold
+      font-size 14px
+
+    .msg
+      display none
+    &:not(.connecting).registering.enableMessages .messageRegistering,
+    &:not(.connecting).unregistering.enableMessages .messageUnregistering,
+    &.connecting.enableMessages .messageConnecting,
+    &.failed.enableMessages .messageFailed,
+    &:not(.registering)._403.enableMessages .messageRegistrationWrongPassword,
+    &:not(.registering)._404.enableMessages .messageRegistrationNotFound,
+    &.userMediaFailed.enableMessages .messageGetUserMedia
+      display block
+    &.hasMessageAlert.enableMessages .messageAlert,
+    &.hasMessageNormal.enableMessages .messageNormal,
+    &.hasMessageWarning.enableMessages .messageWarning,
+    &.hasMessageSuccess.enableMessages .messageSuccess,
+    &:not(.registered):not(.connecting):not(.registering):not(.unregistering):not(._403):not(._404).enableMessages .messageUnregistered,
+    &:not(.connecting):not(.registering).registered.enableMessages .messageRegistered,
+    &:not(.connecting):not(.connected).enableMessages .messageConnectionFailed,
+    &:not(.connecting).connected.enableMessages .messageConnected
+      opacity 0
+      height 0
+      display block
+      animation flickerAnimation 3s
+      -webkit-animation flickerAnimation 3s
+      -moz-animation flickerAnimation 3s
+      -o-animation flickerAnimation 3s
 
 @css {
-.bdsft-client .messages .normal {
+@keyframes flickerAnimation { 
+  0%   { opacity:0; height: 0}
+  5%   { opacity:0.5; height: auto}
+  20%  { opacity:1; height: auto}
+  80%  { opacity:1; height: auto}
+  85%   { opacity:0.5; height: auto}
+  100% { opacity:0; height: 0}
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:0; height: 0}
+  5%   { opacity:0.5; height: auto}
+  20%  { opacity:1; height: auto}
+  80%  { opacity:1; height: auto}
+  85%   { opacity:0.5; height: auto}
+  100% { opacity:0; height: 0}
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:0; height: 0}
+  5%   { opacity:0.5; height: auto}
+  20%  { opacity:1; height: auto}
+  80%  { opacity:1; height: auto}
+  85%   { opacity:0.5; height: auto}
+  100% { opacity:0; height: 0}
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:0; height: 0}
+  5%   { opacity:0.5; height: auto}
+  20%  { opacity:1; height: auto}
+  80%  { opacity:1; height: auto}
+  85%   { opacity:0.5; height: auto}
+  100% { opacity:0; height: 0}
+}
+.bdsft-webrtc .messages .normal {
   color: <%= infoMessageColor %>;
 }
-.bdsft-client .messages .success {
+.bdsft-webrtc .messages .success {
   color: <%= successMessageColor %>;
 }
-.bdsft-client .messages .warning {
-  color: <%= successMessageColor %>;
+.bdsft-webrtc .messages .warning {
+  color: <%= warningMessageColor %>;
 }
-.bdsft-client .messages .alert {
+.bdsft-webrtc .messages .alert {
   color: <%= alertMessageColor %>;
 }
 }
