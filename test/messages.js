@@ -8,8 +8,13 @@ describe('messages', function() {
     core = require('webrtc-core');
     testUA = core.testUA;
     testUA.createCore('urlconfig');
-    testUA.createCore('sipstack');
-    testUA.createModelAndView('messages', {messages: require('../')});
+    testUA.createModelAndView('sipstack', {
+      sipstack: require('webrtc-sipstack')
+    });
+    testUA.createModelAndView('messages', {
+      messages: require('../'),
+      sipstack: require('webrtc-sipstack')
+    });
     testUA.mockWebRTC();
   });
 
