@@ -4,7 +4,7 @@ Displays messages for call events and states.
 
 Model : bdsft_webrtc.default.messages
 View : bdsft_webrtc.default.messagesview
-Dependencies : [SIP Stack](../sipstack)
+Dependencies : [SIP Stack](https://github.com/BroadSoft-Xtended/Library-WebRTC-SIPStack)
 
 ## Elements
 <a name="elements"></a>

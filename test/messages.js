@@ -1,21 +1,15 @@
-var jsdom = require('mocha-jsdom');
-expect = require('expect');
-jsdom({});
-
+test = require('../node_modules/webrtc-sipstack/test/includes/common')(require('../node_modules/webrtc-core/test/includes/common'));
 describe('messages', function() {
 
   before(function(){
-    core = require('webrtc-core');
-    testUA = core.testUA;
-    testUA.createCore('urlconfig');
-    testUA.createModelAndView('sipstack', {
+    test.createCore('urlconfig');
+    test.createModelAndView('sipstack', {
       sipstack: require('webrtc-sipstack')
     });
-    testUA.createModelAndView('messages', {
+    test.createModelAndView('messages', {
       messages: require('../'),
       sipstack: require('webrtc-sipstack')
     });
-    testUA.mockWebRTC();
   });
 
   it('on unregistering', function() {
@@ -34,7 +28,7 @@ describe('messages', function() {
     sipstack.registrationStatus = undefined;
   });
   it('on disconnect', function() {
-    testUA.disconnect();
+    test.disconnect();
     expect(messagesview.messageConnectionFailed.css('display')).toEqual('block');
   });
   it('on userMediaFailed', function() {
@@ -48,7 +42,7 @@ describe('messages', function() {
       alertCalled = true;
     }
     sipstack.failed = true;
-    sipstack.failedCause = core.exsip.C.causes.USER_DENIED_MEDIA_ACCESS;
+    sipstack.failedCause = 'User Denied Media Access';
     expect(alertCalled).toEqual(true);
     sipstack.failed = undefined;
     sipstack.failedCause = undefined;
@@ -74,7 +68,7 @@ describe('messages', function() {
     expect(messages.classes).toEqual(["audioOnly","enableMessages"]);
   });
   // it('on disconnect for 503 with retryAfter', function() {
-  //   testUA.disconnect({
+  //   test.disconnect({
   //     code: 503,
   //     reason: 'Service Unavailable',
   //     retryAfter: 30
