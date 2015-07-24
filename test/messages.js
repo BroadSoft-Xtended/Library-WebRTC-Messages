@@ -16,7 +16,7 @@ describe('messages', function() {
     sipstack.connecting = false;
     sipstack.registering = false;
     sipstack.unregistering = true;
-    expect(messages.classes).toEqual(['unregistering', 'enableMessages']);
+    expect(messages.classes).toEqual(['unregistering', 'audioVideo', 'enableMessages']);
     expect(messagesview.messageUnregistering.css('display')).toEqual('block');
     expect(messagesview.messageRegistering.css('display')).toEqual('none');
     sipstack.unregistering = false;
