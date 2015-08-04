@@ -33,47 +33,9 @@
     &:not(.connecting):not(.registering).registered.enableMessages .messageRegistered,
     &:not(.connecting):not(.connected).enableMessages .messageConnectionFailed,
     &:not(.connecting).connected.enableMessages .messageConnected
-      opacity 0
-      height 0
-      display block
-      animation flickerAnimation 3s
-      -webkit-animation flickerAnimation 3s
-      -moz-animation flickerAnimation 3s
-      -o-animation flickerAnimation 3s
+      {flicker}
 
 @css {
-@keyframes flickerAnimation { 
-  0%   { opacity:0; height: 0}
-  5%   { opacity:0.5; height: auto}
-  20%  { opacity:1; height: auto}
-  80%  { opacity:1; height: auto}
-  85%   { opacity:0.5; height: auto}
-  100% { opacity:0; height: 0}
-}
-@-o-keyframes flickerAnimation{
-  0%   { opacity:0; height: 0}
-  5%   { opacity:0.5; height: auto}
-  20%  { opacity:1; height: auto}
-  80%  { opacity:1; height: auto}
-  85%   { opacity:0.5; height: auto}
-  100% { opacity:0; height: 0}
-}
-@-moz-keyframes flickerAnimation{
-  0%   { opacity:0; height: 0}
-  5%   { opacity:0.5; height: auto}
-  20%  { opacity:1; height: auto}
-  80%  { opacity:1; height: auto}
-  85%   { opacity:0.5; height: auto}
-  100% { opacity:0; height: 0}
-}
-@-webkit-keyframes flickerAnimation{
-  0%   { opacity:0; height: 0}
-  5%   { opacity:0.5; height: auto}
-  20%  { opacity:1; height: auto}
-  80%  { opacity:1; height: auto}
-  85%   { opacity:0.5; height: auto}
-  100% { opacity:0; height: 0}
-}
 .bdsft-webrtc .messages .normal {
   color: <%= infoMessageColor %>;
 }
