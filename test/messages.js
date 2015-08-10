@@ -13,10 +13,11 @@ describe('messages', function() {
   });
 
   it('on unregistering', function() {
+    sipstack.connected = true;
     sipstack.connecting = false;
     sipstack.registering = false;
     sipstack.unregistering = true;
-    expect(messages.classes).toEqual(['unregistering', 'audioVideo', 'enableMessages']);
+    expect(messages.classes).toEqual(['unregistering', 'connected', 'offerToReceiveVideo', 'enableMessages']);
     expect(messagesview.messageUnregistering.css('display')).toEqual('block');
     expect(messagesview.messageRegistering.css('display')).toEqual('none');
     sipstack.unregistering = false;
@@ -65,7 +66,7 @@ describe('messages', function() {
   });
   it('on audioOnly', function() {
     urlconfig.view = 'audioOnly';
-    expect(messages.classes).toEqual(["audioOnly","enableMessages"]);
+    expect(messages.classes).toEqual(["audioOnly","offerToReceiveVideo", "enableMessages"]);
   });
   // it('on disconnect for 503 with retryAfter', function() {
   //   test.disconnect({

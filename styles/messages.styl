@@ -9,7 +9,7 @@
     top 10px
     left 10px
 
-    &.audioOnly
+    &.audioOnly:not(.offerToReceiveVideo)
       left 10px !important
       top 48px !important
       font-weight bold
@@ -17,6 +17,7 @@
 
     .msg
       display none
+
     &:not(.connecting).connected.registering.enableMessages .messageRegistering,
     &:not(.connecting).connected.unregistering.enableMessages .messageUnregistering,
     &.connecting.enableMessages .messageConnecting,
@@ -25,6 +26,7 @@
     &:not(.registering)._404.enableMessages .messageRegistrationNotFound,
     &.userMediaFailed.enableMessages .messageGetUserMedia
       display block
+
     &.hasMessageAlert.enableMessages .messageAlert,
     &.hasMessageNormal.enableMessages .messageNormal,
     &.hasMessageWarning.enableMessages .messageWarning,
